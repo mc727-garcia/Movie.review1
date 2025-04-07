@@ -1,0 +1,87 @@
+// Attempt at a project written in Java
+import java.util.Scanner; 
+import java.util.*;
+
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in); 
+        //User(input); : Needs to be adjusted before running
+        Login(input); 
+        int choice; 
+        int option = 0; 
+        while (option != 4){
+		System.out.println("What would you like to complete today?");
+		System.out.println("1. Check review and rating history");
+		System.out.println("2. Create a new rating for a movie");
+		System.out.println("3. Create a new rating for a show");
+		System.out.println("4. Exit");
+		choice = input.nextInt();
+		input.nextLine(); 
+		switch (choice){
+		    case 1:  
+		        review_history(input); 
+		        break; 
+		    case 2:
+		        new_review_movie(input); 
+		        break; 
+            case 3: 
+                new_review_show(input); 
+                break; 
+            case 4: 
+                option = 4; 
+                System.out.println("Goodbye.");
+                break; 
+            default: 
+                System.out.println("Invalid entry. Goodbye");
+                break; 
+		} // end switch case
+        } // end while loop
+	}
+public static void review_history(Scanner input) {
+    System.out.println("Please enter the name of the movie/show you rated"); 
+	String oldreview = input.nextLine();
+	// CONTINUE BUILDING LOGIN HISTORY (BEING ABLE TO RETRIEVE OLD REVIEW FROM MEMORY)
+}
+public static void new_review_movie(Scanner input){
+    System.out.println("What is the name of the movie you want to rate?");
+	String moviename = input.nextLine(); 
+	System.out.println("What rating do you want to give " + moviename + "?");
+	double movierating = input.nextDouble(); 
+	if (movierating > 10 || movierating < 0){
+	    System.out.println("Invalid Entry."); 
+	}
+	/* System.out.println("Would you like to provide reasoning for your rating?");
+	String ratingresponse = input.nextLine(); 
+	 input.nextLine(); */ // Still need to fix 
+	}
+public static void new_review_show(Scanner input){
+    System.out.println("What is the name of the show you want to rate?"); 
+    String showname = input.nextLine(); 
+    System.out.println("What rating do you want to give " + showname + "?");
+    double showrating = input.nextDouble(); 
+    if (showrating > 10 || showrating < 0){
+        System.out.println("Invalid Entry.");
+    }
+}
+ /* public static void User(Scanner input) {
+    System.out.println("Are you a returning user or new?");
+    String userstatus = input.nextLine(); 
+    if (userstatus == "New"){
+        NewUser(input);  
+    }
+}
+public static void NewUser(Scanner input){
+    System.out.println("A New User! Hello! Let's get started.");
+    System.out.println("What is your name?");
+    String new_user_name = input.nextLine(); 
+    System.out.println("Great to have you " + new_user_name + "!");
+} */ // Still need to work on. 
+public static void Login(Scanner input){
+    System.out.println("Enter your first and last name to login: "); 
+    String name = input.nextLine();
+    System.out.println("What is your password " + name + "?");
+    String password = input.nextLine();
+    System.out.println("Welcome " + name + "!");
+    } 
+}
